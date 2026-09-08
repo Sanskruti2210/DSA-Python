@@ -11,8 +11,8 @@ def kthElement(a,b,k):
     n1 = len(a)
     n2 = len(b)
     
-    low = 0
-    high = n1
+    low = max( 0 , k - n2)
+    high = min( k , n1 )
     
     while low <= high:
         
