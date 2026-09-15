@@ -10,10 +10,16 @@ The output and the triplets can be returned in any order.
 nums = [-1, 0, 1, 2, -1, -4]
 triplet = []
 ans = set()
-for i in range(len(nums) - 2):
+
+for i in range(len(nums)):
+    
     for j in range(i + 1, len(nums)):
+        
         for k in range(j + 1, len(nums)):
+            
             if i != j != k and nums[i] + nums[j] + nums[k] == 0:
+                
+                # Use tuple because list can't be add into set
                 triplet = tuple(sorted([nums[i], nums[j], nums[k]]))
                 ans.add(triplet)
 

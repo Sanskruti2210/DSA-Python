@@ -13,15 +13,26 @@ where indexing is 1-based
 
 # Approach-1
 def pascalTriangle(r, c):
+    
+    # Create empty array 
     triangle = []
+    
     for i in range(r):
+        
+        # Give all col of ith row 1
         row = [1] * (i + 1)
+        
         for j in range(1, i):
+            
+            # In pascal triangle the element is the sum of its above row 2 subsequent cols
             row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
 
+        # Append it in triangle
         triangle.append(row)
+        
     return triangle
 
 
-res = pascalTriangle(5, 5)
-print(res)
+for row in pascalTriangle(5,5) :
+    print(row ,end = ' ')
+    print()

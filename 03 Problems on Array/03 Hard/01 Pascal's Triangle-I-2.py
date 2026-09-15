@@ -13,7 +13,9 @@ where indexing is 1-based
 
 # Approach-2
 def Factorial(n):
+    
     fact = 1
+    
     if n == 0:
         return 1
     elif n == 1:
