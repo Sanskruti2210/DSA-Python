@@ -19,11 +19,11 @@ for i in range(len(nums)):
 for i in range(c0):
     nums[i] = 0
 
-# Append 0 in original array
+# Append 1 in original array
 for j in range(c0, c0 + c1):
     nums[j] = 1
 
-# Append 0 in original array
+# Append 2 in original array
 for k in range(c0 + c1, c0 + c1 + c2):
     nums[k] = 2
 

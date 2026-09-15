@@ -32,6 +32,9 @@ while top <= bottom and left <= right:
 
     # Check because after updating top/right,
     # there may be no row left to traverse.
+    # The key idea is:
+    # top <= bottom → there is still at least one row left.
+    # left <= right → there is still at least one column left.
     if top <= bottom:
         # right->left
         for i in range(right, left - 1, -1):

@@ -4,9 +4,12 @@ find the length of the longest sub-array that sums to k. If no such sub-array ex
 """
 
 nums = [10, 5, 2, 7, 1, 9]
+
 k = 15
+
 left = 0
 right = 0
+
 n = len(nums)
 max_len = 0
 sum = nums[0]

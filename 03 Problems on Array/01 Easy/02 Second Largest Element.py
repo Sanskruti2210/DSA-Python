@@ -8,7 +8,7 @@ If the second-largest element does not exist, return -1.
 Given an array of integers nums, return the value of the largest element in the array
 """
 
-nums = [1, 5, 42, 11]
+nums = [1, 5, 42 ,67 ]
 max1 = float("-inf")
 max2 = float("-inf")
 

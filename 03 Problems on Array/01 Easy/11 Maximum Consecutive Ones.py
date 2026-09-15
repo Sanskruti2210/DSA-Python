@@ -13,11 +13,10 @@ for i in range(len(nums)):
     if nums[i] == 1:
         count += 1
 
-        # store the max counter value between current and previous
-        max_count = max(count, max_count)
-
     # Reset the counter if next element is not 1(or is 0)
     else:
+        # store the max counter value between current and previous
+        max_count = max(count, max_count)
         count = 0
 
 print(max_count)

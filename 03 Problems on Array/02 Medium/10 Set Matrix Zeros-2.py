@@ -17,6 +17,7 @@ rows = [0] * m
 cols = [0] * n
 
 for i in range(m):
+    
     for j in range(n):
 
         # Mark row and col as 1
@@ -27,7 +28,9 @@ for i in range(m):
 # Now if the current element belongs to a marked row
 # or marked column, change it to 0.
 for i in range(m):
+    
     for j in range(n):
+        
         if rows[i] or cols[j]:
             nums[i][j] = 0
 

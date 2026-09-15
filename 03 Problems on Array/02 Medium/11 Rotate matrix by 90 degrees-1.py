@@ -17,6 +17,7 @@ temp = [[0 for _ in range(m)] for _ in range(n)]
 row_in_temp = 0
 
 for j in range(n):
+    
     col_in_temp = 0
 
     for i in range(m - 1, -1, -1):
@@ -31,4 +32,6 @@ for j in range(n):
 
 matrix = temp
 
-print(matrix)
+for num in matrix:
+    print(num,end=' ')
+    print()

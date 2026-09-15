@@ -3,7 +3,7 @@ Given an array of integers nums and an integer k,
 return the total number of subarrays whose sum equals to k.
 """
 
-nums = [1, 2, 3]
+nums = [1, 2, 3, 3]
 k = 3
 
 prefix = {}
@@ -32,3 +32,4 @@ for i in range(len(nums)):
 
 
 print(count)
+print(prefix)

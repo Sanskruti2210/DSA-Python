@@ -14,17 +14,19 @@ m = len(nums[0])
 
 for i in range(n):
 
-    # Mark the entire column -1
     for j in range(m):
+        
         if nums[i][j] == 0:
+            
+            # Mark the entire column -1
             for row in range(n):
                 if nums[row][j] != 0:
                     nums[row][j] = -1
 
-        # Mark the entire row -1
-        for col in range(m):
-            if nums[i][col] != 0:
-                nums[i][col] = -1
+            # Mark the entire row -1
+            for col in range(m):
+                if nums[i][col] != 0:
+                    nums[i][col] = -1
 
 # Convert all marked elements to 0
 for i in range(n):
@@ -32,4 +34,6 @@ for i in range(n):
         if nums[i][j] == -1:
             nums[i][j] = 0
 
-print(nums)
+for i in nums:
+    print(i,end='')
+    print()

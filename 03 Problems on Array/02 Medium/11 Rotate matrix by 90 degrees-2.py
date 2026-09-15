@@ -10,11 +10,22 @@ m = len(matrix)
 n = len(matrix[0])
 
 
+for k in matrix:
+    print(k,end=' ')
+    print()
+print("----------------------------------------------")
 # First transpose the matrix:
 # swap elements across the main diagonal
 for i in range(m):
+    
     for j in range(i + 1, n):
+        
         matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        print(f"for i = {i} j = {j}")
+        for k in matrix:
+            print(k,end=' ')
+            print()
+        print("----------------------------------------------")
 
 
 # Then reverse every row
@@ -31,4 +42,6 @@ for i in range(m):
 #
 # Transpose → Reverse rows → 90° clockwise rotation
 
-print(matrix)
+for row in matrix:
+    print(row , end= ' ')
+    print()

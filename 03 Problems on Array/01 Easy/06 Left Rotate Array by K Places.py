@@ -2,7 +2,6 @@
 Given an integer array nums and a non-negative integer k, rotate the array to the left by k steps.
 """
 
-
 def rotateArr(nums, n):
 
     # If n = 0 all rotation is completed base case
@@ -21,7 +20,6 @@ def rotateArr(nums, n):
 
     rotateArr(nums, n - 1)
 
-
 nums = [1, 2, 3, 4, 5, 6]
-rotateArr(nums, 5)
+rotateArr(nums, 1)
 print(nums)

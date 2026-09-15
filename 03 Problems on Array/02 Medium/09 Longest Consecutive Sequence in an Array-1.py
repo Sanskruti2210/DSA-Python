@@ -21,11 +21,11 @@ for i in range(1, len(nums)):
     if nums[i] == (lastSmaller + 1):
         count += 1
         lastSmaller = nums[i]
-        maxLen = max(maxLen, count)
 
     # If it is not consecutive, the previous sequence ends
     # and we start counting a new sequence
     else:
+        maxLen = max(maxLen, count)
         count = 1
         lastSmaller = nums[i]
 
