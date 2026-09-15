@@ -3,7 +3,6 @@ Given an array arr of n elements.
 The task is to reverse the given array in-place using recursion.
 """
 
-
 def reverse(left, right, arr):
 
     # Example:

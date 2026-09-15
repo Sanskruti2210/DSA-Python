@@ -2,7 +2,6 @@
 Understand recursion by print something N times
 """
 
-
 def print_num(n):
 
     # Recursion is done using stack it goes like below in this case :

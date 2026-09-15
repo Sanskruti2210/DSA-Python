@@ -6,6 +6,7 @@ The Greatest Common Divisor (GCD) of two integers is the largest positive intege
 
 n1 = int(input("Enter a num : "))
 n2 = int(input("Enter a num : "))
+
 while n1 > 0 and n2 > 0:
 
     # The Optimal sol to find GCD of two num is using Euclidean Algorithm

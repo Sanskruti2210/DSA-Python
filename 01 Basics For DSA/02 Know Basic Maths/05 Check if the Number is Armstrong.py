@@ -6,10 +6,12 @@ raised to the power of the number of digits.
 """
 
 n = int(input("Enter a num : "))
+
 temp = n
 armstrong = 0
 digits = len(str(n))
 print(digits)
+
 while n > 0:
 
     # To find armstrong num first found out the num of digits in num and then calculate the sum of digit^numOfDigit
