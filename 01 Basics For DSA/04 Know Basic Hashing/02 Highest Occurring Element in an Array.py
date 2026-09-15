@@ -9,6 +9,8 @@ give a shot to the problem. Cheers!
 print("Enter the array first : ")
 arr = list(map(int, input().split()))
 max_val = max(arr)
+
+# Create a hashmap
 hash = [0] * (max_val + 1)
 
 for ele in arr:
