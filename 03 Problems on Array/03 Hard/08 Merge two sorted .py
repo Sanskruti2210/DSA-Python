@@ -8,11 +8,14 @@ nums2 has a length of n.
 
 nums1 = [-5, -2, 4, 5, 0, 0, 0]
 nums2 = [-3, 1, 8]
+
 m = 4
 n = 3
 k = m + n - 1
+
 left = m - 1
 right = n - 1
+
 while left >= 0 and right >= 0:
     if nums1[left] < nums2[right]:
         nums1[k] = nums2[right]

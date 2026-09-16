@@ -8,6 +8,7 @@ Note: You are not allowed to modify the original array.
 nums = [3, 5, 4, 1, 1]
 freq = {}
 ans = []
+
 for num in nums:
     if num not in freq:
         freq[num] = 1
