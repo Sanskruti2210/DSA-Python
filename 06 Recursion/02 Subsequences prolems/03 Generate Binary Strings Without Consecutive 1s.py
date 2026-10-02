@@ -20,7 +20,7 @@ def binaryString(i,n,string,ans):
         binaryString(i + 1,n,string + '1',ans)
     
         
-n = 1
+n = 4
 ans = []
 string = ''
 binaryString(0,n,string,ans)
