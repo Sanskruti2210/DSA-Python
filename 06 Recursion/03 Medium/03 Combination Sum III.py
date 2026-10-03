@@ -18,7 +18,7 @@ def combSum3(num,n,k,arr,sum,res):
         return
     
     # num can go max till 10
-    if num == 10:
+    if num == n or num == 10:
         return
     
     # Pick
