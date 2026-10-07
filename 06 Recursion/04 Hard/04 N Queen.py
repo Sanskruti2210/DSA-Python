@@ -14,4 +14,45 @@ where (row - col) is equal.
 anti-diagonal where (row + col) is equal.
 '''
 
+def nQueens(row,n,board,res):
+    
+    if row == n :
+        res.append(["".join(r) for r in board])
+        return
+
+    
+    for col in range(n):
+        
+        if col in cols:
+            continue
+        
+        if row - col in diag:
+            continue
+        
+        if row + col in anti_diag:
+            continue
+        
+        board[row][col] = 'Q'
+        cols.add(col)
+        diag.add(row - col)
+        anti_diag.add(row + col)
+        
+        nQueens(row + 1, n, board, res)
+        
+        board[row][col] = '.'
+        cols.remove(col)
+        diag.remove(row - col)
+        anti_diag.remove(row + col)
+     
+  
+n = 4   
+board = [['.' for _ in range(n)] for _ in range(n)]
+res = []
+cols = set()
+diag = set()
+anti_diag = set()
+nQueens(0,n,board,res)
+print(res)
+            
+
 
