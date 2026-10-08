@@ -6,4 +6,22 @@ In this context, colouring a graph refers to giving each vertex a different colo
 If the colouring of vertices is possible then return true, otherwise return false.
 '''
 
+def compress(index, s, count, res):
+    
+    if index == len(s):
+        res.append(s[index - 1] + str(count))
+        return
 
+    if s[index] == s[index - 1]:
+        compress(index + 1, s, count + 1, res)
+    else:
+        res.append(s[index - 1] + str(count))
+        compress(index + 1, s, 1, res)
+
+
+s = 'aaabbcde'
+res = []
+
+compress(1, s, 1, res)
+
+print("".join(res))
