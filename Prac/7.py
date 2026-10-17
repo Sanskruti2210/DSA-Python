@@ -6,7 +6,7 @@ def printVal(n):
         return
     
     printVal(n-1)
-    
+        
     print(n)
     
 n = 5

@@ -1,6 +1,6 @@
 '''Given an integer array, find the maximum sum of a contiguous subarray.'''
 
-nums = [-2,1,-3,4,-1,2,1,-5,4]
+nums = [-5,-2,-8]
 
 i = 0
 sum = 0
@@ -10,10 +10,11 @@ while i < len(nums):
     
     sum += nums[i]
     
+    max_sum = max(max_sum,sum)
+    
     if sum < 0:
         sum = 0
-        
-    max_sum = max(max_sum,sum)    
+            
     
     i += 1
     

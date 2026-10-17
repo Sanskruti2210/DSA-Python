@@ -11,10 +11,10 @@ for n in nums:
     else:
         c2 += 1
         
-for i in range(0,c0 + 1):
+for i in range(0,c0):
     nums[i] = 0
     
-for j in range(c0,c0 + c1 + 1):
+for j in range(c0,c0 + c1):
     nums[j] = 1
     
 for k in range(c0 + c1,len(nums)):
