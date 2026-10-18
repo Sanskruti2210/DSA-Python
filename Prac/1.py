@@ -1,12 +1,7 @@
-'''Given an integer array nums, find the largest element in the array.'''
+'''Given an integer N, print the following pattern.'''
 
-nums = [2, 5, 1, 3, 0]
-
-largest = nums[0]
-
-for i in range(len(nums)):
-    
-    if nums[i] > largest:
-        largest = nums[i]
-        
-print(largest)
+n = 5
+for i in range(n):
+    for j in range(n):
+        print("*",end= "")
+    print()
