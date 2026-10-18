@@ -1,15 +1,17 @@
-'''Given a string, determine whether it is a palindrome using recursion.'''
+'''Given an array prices, where prices[i] represents the stock price on day i, determine the maximum profit you can achieve by buying and selling the stock at most once.
+You must buy before selling.'''
 
-def isPalindrome(s,left,right):
-    
-    if left >= right:
-        return True
-    
-    if s[left] != s[right]:
-        return False
-    
-    return isPalindrome(s,left + 1,right - 1)
-    
-s = "madam"
-print(isPalindrome(s,0,len(s) - 1))
+prices = [7, 1, 5, 3, 6, 4]
 
+max_profit = 0
+min_price = prices[0]
+
+for i in range(len(prices)):
+    
+    profit = prices[i] - min_price
+    min_price = min(min_price,prices[i])
+        
+    if profit > max_profit:
+        max_profit = profit
+            
+print(max_profit)

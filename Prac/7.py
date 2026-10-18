@@ -1,13 +1,29 @@
-'''Given an integer N, print the numbers from 1 to N using recursion.'''
-
-def printVal(n):
-    
-    if n == 0:
-        return
-    
-    printVal(n-1)
-        
-    print(n)
-    
+'''Print the following pattern for a given N.'''
 n = 5
-printVal(n)
+
+for i in range(1,n + 1):
+    
+    for j in range(n - i):
+        print(" ",end="")
+        
+    for k in range(i):
+        print("*",end="")
+        
+    for s in range(1,i):
+        print("*",end="")
+        
+    print()
+    
+for i in range(n,0,-1):
+    
+    for j in range(n - i):
+        print(" ",end="")
+        
+    for k in range(i):
+        print("*",end="")
+        
+    for s in range(1,i):
+        print("*",end="")
+        
+    print()
+    

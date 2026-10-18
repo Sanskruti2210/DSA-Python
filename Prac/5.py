@@ -1,22 +1,27 @@
-'''Given an integer array, find the maximum sum of a contiguous subarray.'''
+'''Given an integer array nums that may contain duplicate elements, generate its power set.
+The result must not contain duplicate subsets.'''
 
-nums = [-5,-2,-8]
+def subSet(index,nums,n,arr,res):
+    
+    if index == n:
+        
+        arr = sorted(arr)
+        
+        if arr not in res:
+            res.append(arr)
+        
+        return
+    
+    # Not pick
+    subSet(index + 1,nums,n,arr,res)
+    
+    # Pick
+    subSet(index + 1,nums,n,arr + [nums[index]],res)
 
-i = 0
-sum = 0
-max_sum = float('-inf')
 
-while i < len(nums):
-    
-    sum += nums[i]
-    
-    max_sum = max(max_sum,sum)
-    
-    if sum < 0:
-        sum = 0
-            
-    
-    i += 1
-    
-print(max_sum)
-    
+nums = [1, 2, 2]
+res = []
+arr = []
+subSet(0,nums,len(nums),arr,res)
+res.sort()
+print(res)

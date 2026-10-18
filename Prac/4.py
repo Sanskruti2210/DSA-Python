@@ -1,25 +1,14 @@
-'''Given a sorted array and a target X, find the index of X using Binary Search.'''
+'''Given two integers r and c, return the value at the r-th row and c-th column of Pascal's Triangle.
+Both r and c are 1-indexed.'''
 
-def binarySearch(nums,x):
+def pasCalRow(r,c):
     
-    low = 0
-    high = len(nums) - 1
-    
-    if low > high:
-        return -1
-    
-    while low <= high:
+    val = 1
+    for i in range(1,c):
+        val = val*(r - i) // i
         
-        mid = (low + high) // 2
-        
-        if nums[mid] == x:
-            return mid
-        elif nums[mid] > x:
-            high = mid - 1
-        else:
-            low = mid + 1
-            
-nums = [1, 3, 5, 7, 9]
-x = 7
-print(binarySearch(nums,x))
+    return val
+
+print(pasCalRow(5,3))
+    
 

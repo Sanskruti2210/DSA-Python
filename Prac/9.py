@@ -1,23 +1,41 @@
-'''Given an array containing 0s, 1s and 2s, sort it in-place without using a general-purpose sorting function.'''
+'''Q10 — Koko Eating Bananas 🍌
+Koko has n piles of bananas. piles[i] represents the number of bananas in the i-th pile.
+She has h hours to eat all the bananas.
+Each hour, she chooses one non-empty pile and eats k bananas from it. If fewer than k bananas remain, 
+she eats all the remaining bananas from that pile.
+Find the minimum value of k such that she can finish all bananas within h hours.'''
 
-nums = [2,0,2,1,1,0]
-c0 = c1 = c2 = 0
+import math
 
-for n in nums:
-    if n == 0:
-        c0 += 1
-    elif n == 1:
-        c1 += 1
-    else:
-        c2 += 1
+def count(piles,mid,hour):
+    
+    count = 0
+    
+    for i in range(len(piles)):
+        count += math.ceil(piles[i] / mid)
         
-for i in range(0,c0):
-    nums[i] = 0
+    return count
+
+def kokoBanana(piles,hour):
     
-for j in range(c0,c0 + c1):
-    nums[j] = 1
+    low = 1
+    high = h
     
-for k in range(c0 + c1,len(nums)):
-    nums[k] = 2
-    
-print(nums)
+    while low <= high:
+        
+        mid = (low + high) // 2
+        
+        countBanana = count(piles,mid,hour)
+        
+        if countBanana <= h:
+            high = mid - 1
+            
+        else:
+            
+            low = mid + 1
+            
+    return low
+
+piles = [3, 6, 7, 11]
+h = 8
+print(kokoBanana(piles,h))

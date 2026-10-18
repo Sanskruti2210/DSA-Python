@@ -1,15 +1,22 @@
 '''
-Implement Selection Sort to sort an array in increasing order.
+Implement Insertion Sort using recursion.
+Restrictions:
+- Do not use a for loop.
+- Do not use a while loop.
 '''
 
-nums = [64, 25, 12, 22, 11]
-
-for i in range(len(nums)):
+def recursiveInsertionSort(nums,j):
     
-    for j in range(i,len(nums)):
+    if j == 0:
+        return
+    
+    if nums[j - 1] > nums[j]:
         
-        if nums[i] > nums[j]:
-            nums[i],nums[j] = nums[j],nums[i]
+        nums[j - 1],nums[j] = nums[j],nums[j - 1]
+        
+        recursiveInsertionSort(nums,j + 1)
             
+nums = [5, 3, 4, 1, 2]
+recursiveInsertionSort(nums,0)
 print(nums)
         

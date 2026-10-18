@@ -1,36 +1,74 @@
-'''You are given a rotated sorted array containing distinct integers. Search for a target X and return its index.'''
+'''Roman numerals use these symbols:
+I = 1
+V = 5
+X = 10
+L = 50
+C = 100
+D = 500
+M = 1000
 
-def binarySearch(nums,target):
+IV = 4
+IX = 9
+XL = 40
+XC = 90
+CD = 400
+CM = 900'''
+
+s = "MCMXCIV"
+count = 0
+i = 0
+
+n = len(s) - 1
+
+while i < len(s):
     
-    low = 0
-    high = len(nums) - 1
-    
-    if low > high:
-        return -1
-    
-    while low <= high:
-        
-        mid = (low + high) // 2
-        
-        if nums[mid] == target:
-            return mid
-        
-        if nums[low] <= nums[mid]:
-            
-            if nums[low] <= target < nums[mid]:
-                high = mid - 1
-            else:
-                low = mid + 1
-                
+    if s[i] == "I":
+        if i != n and s[i + 1] == "V":
+            count += 4
+            i += 2
+        elif i != n and s[i + 1] == "X":
+            count += 9
+            i += 2
         else:
+            count += 1
+            i += 1
             
-            if nums[mid] < target <= nums[high]:
-                low = mid + 1
-            else:
-                high = mid - 1      
-                
-    return -1 
-
-nums = [4,5,6,7,0,1,2]
-target = 0
-print(binarySearch(nums,target))
+    elif s[i] == "V":
+        count += 5
+        i += 1
+      
+    elif s[i] == "X":
+        if i != n and s[i + 1] == "L":
+            count += 40
+            i += 2
+        elif i != n and s[i + 1] == "C":
+            count += 90
+            i += 2
+        else:
+            count += 10  
+            i += 1
+    
+    elif s[i] == "L":
+        count += 50
+        i += 1
+        
+    elif s[i] == "C":
+        if i != n and s[i + 1] == "D":
+            count += 400
+            i += 2
+        elif i != n and s[i + 1] == "M":
+            count += 900
+            i += 2
+        else:
+            count += 100
+            i += 1
+            
+    elif s[i] == "D":
+        count += 500
+        i += 1
+        
+    elif s[i] == "M":
+        count += 1000  
+        i += 1
+        
+print(count)

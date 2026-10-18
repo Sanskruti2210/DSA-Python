@@ -1,21 +1,28 @@
-'''Given two strings s and t, determine whether they are anagrams of each other.
-Two strings are anagrams if they contain the same characters with the same frequencies.'''
+'''Given an integer N, find the number of prime numbers in the range:'''
 
-s = "anagram"
-t = "nagaram"
+import math
 
-count1 = {}
-
-for ch in s:
+def isPrime(n):
     
-    count1[ch] = count1.get(ch,0) + 1
-   
-count2 = {} 
+    if n > 1:
+        
+        for i in range(2,math.isqrt(n) + 1):
+            
+            if n % i == 0:
+                return False
 
-for ch in t:
-    count2[ch] = count2.get(ch,0) + 1
+        return True 
+
+def countPrime(n):
     
-if count1 == count2:
-    print(True)
-else:
-    print(False)
+    count = 0
+    
+    for i in range(1,n + 1):
+    
+        if isPrime(i):
+            count += 1
+    
+    return count
+
+n = 10
+print(countPrime(n))
