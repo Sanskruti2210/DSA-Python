@@ -1,28 +1,13 @@
-'''Given an integer N, find the number of prime numbers in the range:'''
+'''Given an integer array, determine whether it is sorted in non-decreasing order.'''
 
-import math
+nums = [1, 3, 2, 4]
 
-def isPrime(n):
-    
-    if n > 1:
-        
-        for i in range(2,math.isqrt(n) + 1):
-            
-            if n % i == 0:
-                return False
+isSorted = True
 
-        return True 
-
-def countPrime(n):
+for i in range(1,len(nums)):
     
-    count = 0
+    if nums[i - 1] > nums[i]:
+        isSorted = False
+        break
     
-    for i in range(1,n + 1):
-    
-        if isPrime(i):
-            count += 1
-    
-    return count
-
-n = 10
-print(countPrime(n))
+print(isSorted)

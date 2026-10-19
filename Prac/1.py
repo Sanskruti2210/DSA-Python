@@ -1,7 +1,10 @@
-'''Given an integer N, print the following pattern.'''
+'''Given an integer array nums, find and return the sum of all elements.'''
 
-n = 5
-for i in range(n):
-    for j in range(n):
-        print("*",end= "")
-    print()
+nums = [1, 2, 3, 4, 5]
+
+sum = 0
+
+for n in nums:
+    sum += n
+    
+print(sum)

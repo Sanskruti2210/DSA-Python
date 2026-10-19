@@ -1,10 +1,18 @@
-'''Factorial Using Recursion'''
+'''Given N, print the first N Fibonacci numbers.'''
 
-def fact(n):
+def fibonacci(n):
     
-    if n == 0 or n == 1:
+    if n == 0:
+        return 0
+    elif n == 1:
         return 1
-    
-    return n*fact(n - 1)
+    else:
+        return fibonacci(n -1) + fibonacci(n - 2)
 
-print(fact(5))
+n = 7
+for i in range(n):
+    print(fibonacci(i),end=",")
+
+    
+    
+    

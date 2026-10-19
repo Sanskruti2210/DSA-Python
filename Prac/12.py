@@ -1,11 +1,11 @@
-'''Q14 — Pattern Printing'''
+'''You are given an array containing N distinct numbers from 0 to N. Exactly one number is missing. Find it.'''
 
-n = 5
+nums = [3, 0, 1]
 
-for i in range(1,n + 1):
-    
-    for j in range(i):
-        
-        print(i,end="")
-        
-    print()
+xor = len(nums)
+
+for i in range(len(nums)):
+    xor ^= i
+    xor ^= nums[i]
+
+print(xor)

@@ -1,22 +1,13 @@
-'''
-Implement Insertion Sort using recursion.
-Restrictions:
-- Do not use a for loop.
-- Do not use a while loop.
-'''
+nums = [1, 2, 3, 4, 5]
 
-def recursiveInsertionSort(nums,j):
+ans = [0]*len(nums)
+
+n = len(nums)
+m = n - 1
+
+for i in range(len(nums)):
     
-    if j == 0:
-        return
+    ans[m] = nums[i]
+    m -= 1
     
-    if nums[j - 1] > nums[j]:
-        
-        nums[j - 1],nums[j] = nums[j],nums[j - 1]
-        
-        recursiveInsertionSort(nums,j + 1)
-            
-nums = [5, 3, 4, 1, 2]
-recursiveInsertionSort(nums,0)
-print(nums)
-        
+print(ans)

@@ -1,29 +1,11 @@
-'''Print the following pattern for a given N.'''
-n = 5
+'''Given a positive integer N, count the number of digits in it.'''
 
-for i in range(1,n + 1):
+n = 58392
+digits = 0
+
+while n > 0 :
     
-    for j in range(n - i):
-        print(" ",end="")
-        
-    for k in range(i):
-        print("*",end="")
-        
-    for s in range(1,i):
-        print("*",end="")
-        
-    print()
+    digits += 1
+    n = n // 10
     
-for i in range(n,0,-1):
-    
-    for j in range(n - i):
-        print(" ",end="")
-        
-    for k in range(i):
-        print("*",end="")
-        
-    for s in range(1,i):
-        print("*",end="")
-        
-    print()
-    
+print(digits)

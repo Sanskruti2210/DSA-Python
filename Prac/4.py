@@ -1,14 +1,12 @@
-'''Given two integers r and c, return the value at the r-th row and c-th column of Pascal's Triangle.
-Both r and c are 1-indexed.'''
+'''Given an integer array, count how many elements are even.'''
 
-def pasCalRow(r,c):
+even = 0
+
+nums = [1, 2, 4, 7, 8, 9]
+
+for num in nums:
     
-    val = 1
-    for i in range(1,c):
-        val = val*(r - i) // i
+    if num % 2 == 0:
+        even += 1
         
-    return val
-
-print(pasCalRow(5,3))
-    
-
+print(even)

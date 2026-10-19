@@ -1,16 +1,12 @@
-'''
-Given an array of integers nums, return the second-largest element.
-'''
-nums = [1, 5, 42, 67]
-largest = nums[0]
-secondLargest = -1
+'''Given an integer array, find the smallest element without using min().'''
 
-for i in range(len(nums)):
+nums = [5, 2, 8, 1, 9]
+
+min_ele = nums[0]
+
+for n in nums:
     
-    if nums[i] > largest:
-        secondLargest = largest
-        largest = nums[i]
-    elif nums[i] > secondLargest:
-        secondLargest = nums[i]
+    if n < min_ele:
+        min_ele = n
         
-print(secondLargest)
+print(min_ele)

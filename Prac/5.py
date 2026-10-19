@@ -1,27 +1,13 @@
-'''Given an integer array nums that may contain duplicate elements, generate its power set.
-The result must not contain duplicate subsets.'''
+'''Given an array and a target, return the index of the target. Return -1 if it doesn't exist.'''
 
-def subSet(index,nums,n,arr,res):
-    
-    if index == n:
-        
-        arr = sorted(arr)
-        
-        if arr not in res:
-            res.append(arr)
-        
-        return
-    
-    # Not pick
-    subSet(index + 1,nums,n,arr,res)
-    
-    # Pick
-    subSet(index + 1,nums,n,arr + [nums[index]],res)
+nums = [4, 7, 2, 9, 5]
+target = 9
 
+isFound = -1
 
-nums = [1, 2, 2]
-res = []
-arr = []
-subSet(0,nums,len(nums),arr,res)
-res.sort()
-print(res)
+for i in range(len(nums)):
+    
+    if nums[i] == target:
+        isFound = i
+        
+print(isFound)
