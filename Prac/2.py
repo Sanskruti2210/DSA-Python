@@ -1,12 +1,17 @@
-'''Given an integer array, find the smallest element without using min().'''
+'''Given a binary array containing only 0 and 1, find the maximum number of consecutive 1s.'''
 
-nums = [5, 2, 8, 1, 9]
+nums = [1, 1, 0, 1, 1, 1]
 
-min_ele = nums[0]
+count1s = 0
+max1s = 0
 
-for n in nums:
+for i in range(len(nums)):
     
-    if n < min_ele:
-        min_ele = n
+    if nums[i] == 1:
+        count1s += 1
+    elif nums[i] == 0:
+        count1s = 0
         
-print(min_ele)
+    max1s = max(max1s,count1s)
+        
+print(max1s)

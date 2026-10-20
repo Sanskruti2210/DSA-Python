@@ -1,10 +1,20 @@
-'''Given an integer array nums, find and return the sum of all elements.'''
+'''Given an integer array nums and an integer target, return the indices of the two numbers whose sum equals target.
 
-nums = [1, 2, 3, 4, 5]
+You may assume exactly one solution exists.'''
 
-sum = 0
+nums = [2, 7, 11, 15]
+target = 9
 
-for n in nums:
-    sum += n
+count = {}
+
+for i in range(len(nums)):
     
-print(sum)
+    exist = target - nums[i]
+    
+    if exist in count:
+        print([count[exist],i])
+        break
+    
+    count[nums[i]] = i
+    
+    

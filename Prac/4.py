@@ -1,12 +1,15 @@
-'''Given an integer array, count how many elements are even.'''
+'''Given an array of integers, find the element that appears more than n/2 times.
 
-even = 0
+You may assume such an element always exists.'''
 
-nums = [1, 2, 4, 7, 8, 9]
+freq = {}
+
+nums = [2, 2, 1, 1, 1, 2, 2]
+n = len(nums)
 
 for num in nums:
     
-    if num % 2 == 0:
-        even += 1
-        
-print(even)
+    freq[num] = freq.get(num,0) + 1
+    
+ans = [key for key,val in freq.items() if val > (n//2)]
+print(ans[0])

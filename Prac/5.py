@@ -1,13 +1,25 @@
-'''Given an array and a target, return the index of the target. Return -1 if it doesn't exist.'''
+'''Given an array of integers and an integer K, find the length of the longest subarray whose sum is exactly K.'''
 
-nums = [4, 7, 2, 9, 5]
-target = 9
+nums = [10, 5, 2, 7, 1, 9]
+k = 15
+maxLen = 0
 
-isFound = -1
+prefix = {}
+current_sum = 0
 
 for i in range(len(nums)):
     
-    if nums[i] == target:
-        isFound = i
+    current_sum += nums[i]
+    
+    if current_sum == k:
+        maxLen = max(maxLen,i + 1)
+    
+    pre = current_sum - k
+    if pre in prefix:
+        length = i - prefix[pre]
+        maxLen = max(maxLen,length)
         
-print(isFound)
+    if current_sum not in prefix:
+        prefix[current_sum] = i
+        
+print(maxLen)

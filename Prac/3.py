@@ -1,13 +1,15 @@
-nums = [1, 2, 3, 4, 5]
+'''Given an integer array, move all 0s to the end while maintaining the relative order of the non-zero elements.
 
-ans = [0]*len(nums)
+Do it in-place.'''
 
-n = len(nums)
-m = n - 1
+nums = [0, 1, 0, 3, 12]
 
-for i in range(len(nums)):
+left = 0
+
+for right in range(len(nums)):
     
-    ans[m] = nums[i]
-    m -= 1
+    if nums[right] != 0:
+        nums[left],nums[right] = nums[right],nums[left]
+        left += 1
     
-print(ans)
+print(nums)
