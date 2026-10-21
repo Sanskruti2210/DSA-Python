@@ -4,23 +4,15 @@ Return the number of unique elements.'''
 
 nums = [1, 1, 2, 2, 3, 4, 4]
 
-freq = {}
-unique = 0
-n = len(nums) - 1
+left = 1
 
-for i in range(len(nums)):
+for right in range(1, len(nums)):
     
-    if nums[i] in freq:
-        unique += 1
-        nums[i],nums[n] = nums[n],nums[i]
-        n -= 1
-        print(nums)
-    
-    freq[nums[i]] = freq.get(nums[i],0) + 1
-    
-nums.reverse()
-nums = nums[:unique]
-nums.reverse()
-print(unique)
-print(nums)
-    
+    if nums[right] != nums[left - 1]:
+        nums[left] = nums[right]
+        left += 1
+        
+    print(nums)
+
+print(left)
+print(nums[:left])

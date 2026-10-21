@@ -1,11 +1,33 @@
-'''Given a positive integer N, count the number of digits in it.'''
+'''Given a string containing:
+( ) [ ] { }
 
-n = 58392
-digits = 0
+determine whether the brackets are properly matched and nested.'''
 
-while n > 0 :
+def isValidParthesis(s):
     
-    digits += 1
-    n = n // 10
+    stack = []
     
-print(digits)
+    for p in s:
+        
+        if p == '(' or p == '{' or p=='[':
+            stack.append(p)
+        elif p == ')':
+            if stack[-1] != '(':
+                return False
+            else:
+                stack.pop()
+        elif p == ']':
+            if stack[-1] != '[':
+                return False
+            else:
+                stack.pop()
+        elif p == '}':
+            if stack[-1] != '{':
+                return False
+            else:
+                stack.pop()
+
+    return True
+
+s = "([)]"
+print(isValidParthesis(s))
