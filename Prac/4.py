@@ -1,15 +1,27 @@
-'''Given an array of integers, find the element that appears more than n/2 times.
+'''Given an array containing only 0, 1, and 2, sort it in ascending order.
 
-You may assume such an element always exists.'''
+Do not use Python's sort() or sorted().'''
 
-freq = {}
+nums = [2, 0, 2, 1, 1, 0]
 
-nums = [2, 2, 1, 1, 1, 2, 2]
-n = len(nums)
+c0 = c1  = c2 = 0
 
-for num in nums:
+for i in range(len(nums)):
     
-    freq[num] = freq.get(num,0) + 1
+    if nums[i] == 0:
+        c0 += 1
+    elif nums[i] == 1:
+        c1 += 1
+    else :
+        c2 += 1
+        
+for i in range(0,c0):
+    nums[i] = 0
     
-ans = [key for key,val in freq.items() if val > (n//2)]
-print(ans[0])
+for j in range(c0,c0+c1):
+    nums[j] = 1
+
+for k in range(c0+c1,len(nums)):
+    nums[k] = 2
+    
+print(nums)

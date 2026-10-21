@@ -1,20 +1,26 @@
-'''Given an integer array nums and an integer target, return the indices of the two numbers whose sum equals target.
+'''Given a sorted integer array nums, remove the duplicates in-place so that each unique element appears only once.
 
-You may assume exactly one solution exists.'''
+Return the number of unique elements.'''
 
-nums = [2, 7, 11, 15]
-target = 9
+nums = [1, 1, 2, 2, 3, 4, 4]
 
-count = {}
+freq = {}
+unique = 0
+n = len(nums) - 1
 
 for i in range(len(nums)):
     
-    exist = target - nums[i]
+    if nums[i] in freq:
+        unique += 1
+        nums[i],nums[n] = nums[n],nums[i]
+        n -= 1
+        print(nums)
     
-    if exist in count:
-        print([count[exist],i])
-        break
+    freq[nums[i]] = freq.get(nums[i],0) + 1
     
-    count[nums[i]] = i
-    
+nums.reverse()
+nums = nums[:unique]
+nums.reverse()
+print(unique)
+print(nums)
     

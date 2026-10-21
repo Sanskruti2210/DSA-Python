@@ -1,15 +1,21 @@
-'''Given an integer array, move all 0s to the end while maintaining the relative order of the non-zero elements.
+'''Every element in an integer array appears twice except one element. Find the element that appears only once.'''
 
-Do it in-place.'''
+nums = [4, 1, 2, 1, 2]
 
-nums = [0, 1, 0, 3, 12]
+count = {}
 
-left = 0
-
-for right in range(len(nums)):
+for i in range(len(nums)):
     
-    if nums[right] != 0:
-        nums[left],nums[right] = nums[right],nums[left]
-        left += 1
+    count[nums[i]] = count.get(nums[i],0) + 1
     
-print(nums)
+ans = [key for key,val in count.items() if val == 1]
+print(ans[0])
+
+
+XOR = 0
+
+for i in range(len(nums)):
+    
+    XOR ^= nums[i]
+        
+print(XOR)
