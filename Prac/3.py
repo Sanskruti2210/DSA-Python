@@ -1,21 +1,22 @@
-'''Every element in an integer array appears twice except one element. Find the element that appears only once.'''
+'''Given an integer N, determine whether it is a Perfect Number.
 
-nums = [4, 1, 2, 1, 2]
+A number is perfect if the sum of its proper divisors equals the number itself.'''
 
-count = {}
+import math
+n = 28
+divisor = []
 
-for i in range(len(nums)):
+for i in range(1,math.isqrt(n) + 1):
     
-    count[nums[i]] = count.get(nums[i],0) + 1
-    
-ans = [key for key,val in count.items() if val == 1]
-print(ans[0])
-
-
-XOR = 0
-
-for i in range(len(nums)):
-    
-    XOR ^= nums[i]
+    if n % i == 0:
+        divisor.append(i)
         
-print(XOR)
+        if i != (n // i) and (n//i) != n:
+            divisor.append(n//i)
+      
+divisor.sort()  
+print(divisor)
+if sum(divisor) == n:
+    print(True)
+else:
+    print(False)

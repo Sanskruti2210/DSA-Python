@@ -1,36 +1,23 @@
-'''Given a sorted array that has been rotated at some unknown position, search for target.
+'''Given an array of integers, rearrange it into the next lexicographically greater permutation.
 
-Return its index, or -1 if it doesn't exist.'''
+If the next permutation does not exist, rearrange it into the smallest possible order.'''
 
-def IStarget(nums,target):
+nums = [1, 2, 3]
+
+breakpoint = -1
+
+for i in range(len(nums) - 2,-1,-1):
     
-    low = 0
-    high = len(nums) - 1
+    if nums[i]  < nums[i + 1]:
+        
+        breakpoint = i
+        break
     
-    while low <= high :
-        
-        mid = (low + high) // 2
-        
-        if nums[mid] == target:
-            return mid
-        
-        elif nums[low] < nums[mid]:
-            
-            if nums[low] <= target < nums[mid]:
-                high = mid - 1
-            else :
-                low = mid + 1
-                
-        elif nums[mid] < nums[high]:
-            
-            if nums[mid] < target <= nums[high]:
-                low = mid + 1
-            else :
-                high = mid - 1
-                
-    return -1
-
-nums = [4, 5, 6, 7, 0, 1, 2]
-target = 0
-res = IStarget(nums,target)
-print(res)
+print(breakpoint)
+if breakpoint == -1:
+    nums.reverse()
+else:
+    
+    nums = nums[0:i]
+    
+print(nums)

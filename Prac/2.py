@@ -1,8 +1,16 @@
-'''Given an integer array nums and an integer k, rotate the array to the right by k positions.'''
+'''Given an integer N, print all of its divisors.'''
 
-nums = [1, 2, 3, 4, 5, 6, 7]
-k = 3
+import math
+n = 36
+divisor = []
 
-nums.reverse()
-nums = nums[k - 1::-1] + nums[:k - 1:-1]
-print(nums)
+for i in range(1,math.isqrt(n) + 1):
+    
+    if n % i == 0:
+        divisor.append(i)
+        
+        if i != (n // i):
+            divisor.append(n//i)
+      
+divisor.sort()  
+print(divisor)

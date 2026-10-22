@@ -1,18 +1,16 @@
-'''Given a sorted integer array nums, remove the duplicates in-place so that each unique element appears only once.
+'''Given two integers N1 and N2, find their Greatest Common Divisor (GCD).'''
 
-Return the number of unique elements.'''
+n1 = 20
+n2 = 28
 
-nums = [1, 1, 2, 2, 3, 4, 4]
-
-left = 1
-
-for right in range(1, len(nums)):
+while n1 > 0 and n2 > 0:
     
-    if nums[right] != nums[left - 1]:
-        nums[left] = nums[right]
-        left += 1
+    if n1 > n2:
+        n1 = n1%n2
+    else:
+        n2 = n2%n1
         
-    print(nums)
-
-print(left)
-print(nums[:left])
+if n1 == 0:
+    print(n2)
+else:
+    print(n1)
