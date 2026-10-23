@@ -1,16 +1,41 @@
-'''Given an integer N, determine whether it is a palindrome.'''
+'''Given a matrix, return its elements in spiral order.'''
 
-num = 121
-temp = num
-rev = 0
+matrix = [
+[1,2,3],
+[4,5,6],
+[7,8,9]
+]
 
-while num > 0:
+m = len(matrix)
+n = len(matrix[0])
+
+left = 0
+top = 0
+right = n - 1
+bottom = m - 1
+
+ans = []
+
+while top <= bottom and left <= right:
     
-    rmd = num % 10
-    rev = rev*10 + rmd
-    num = num // 10
+    for i in range(left,right + 1):
+        ans.append(matrix[top][i])
+    top += 1
+        
+    for j in range(top,bottom + 1):
+        ans.append(matrix[j][right])
+    right -= 1
+        
+    if top <= bottom:
+        for k in range(right,left - 1,-1):
+            ans.append(matrix[bottom][k])
+            
+    bottom -= 1
     
-if rev == temp:
-    print(True)
-else:
-    print(False)
+    if right <= left:
+        for l in range(bottom,top - 1,-1):
+            ans.append(matrix[l][left])
+            
+    left += 1
+    
+print(ans)

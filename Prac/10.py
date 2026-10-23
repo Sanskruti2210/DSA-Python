@@ -1,22 +1,23 @@
-'''Given a string s, find the length of the longest substring without repeating characters.'''
+'''Given an integer array nums and an integer K, count the number of subarrays whose sum is exactly K.'''
 
-s = "abcabcbb"
+nums = [1, 2, 3]
+k = 3
 
-ans = []
-start = 0
-length = 0
-max_length = 0
+prefix = {0 : 1}
+current_sum = 0
+count = 0
 
-for ch in range(len(s)):
+for i in range(len(nums)):
     
-    if s[ch] not in ans:
-        ans.append(s[ch])
-    else:
-        length = ch - start
-        start = ch
-        max_length = max(max_length,length)
-        ans = []
+    current_sum += nums[i]
+    
+    if current_sum == k:
+        count += 1
         
-print(max_length)
-    
-    
+    pre = k - current_sum
+    if pre in prefix:
+        count += 1
+        
+    prefix[current_sum] = i
+        
+print(count)

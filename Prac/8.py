@@ -1,20 +1,30 @@
-'''Given an integer N, return its reverse.'''
+'''Given an N × N matrix, rotate it 90 degrees clockwise.'''
 
-n = 12345
-temp = n
-digits = 0
-rev = 0
+matrix = [
+[1,2,3],
+[4,5,6],
+[7,8,9]
+]
 
-while n > 0 :
+m = len(matrix)
+n = len(matrix[0])
+
+for i in range(m):
     
-    digits += 1
-    n = n // 10
+    for j in range(i + 1,n):
+        
+        matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
+        
+for row in matrix:
     
-print(digits)
-while  temp > 0 :
+    row.reverse()
     
-    rev += (temp % 10)*(10**digits)
-    digits -= 1
-    temp = temp // 10
+for i in range(m):
     
-print(rev // 10)
+    for j in range(n):
+        
+        print(matrix[i][j],end = " ")
+    
+    print()
+    
+    
