@@ -1,25 +1,28 @@
-'''Given an integer array, find the contiguous subarray having the maximum sum.'''
+'''Given an unsorted array, find the length of the longest sequence of consecutive integers.'''
 
-nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+nums = [1,2,3,4,100,101,102,103,104,105]
 
-ans = []
+nums.sort()
+nums = list(set(nums))
 
-max_sum = 0
-current_sum = 0 
-best_start = 0
-best_end = 0
+longest = 1
+max_longest = 0
 
-for i in range(len(nums)):
+i = 1
+while i < len(nums):
     
-    current_sum += nums[i]
-    
-    if current_sum < 0:
-        best_end = i
+    while i < len(nums) and nums[i] == nums[i - 1] + 1:
+        longest += 1
+        i += 1
         
-    best_start = i
+    max_longest = max(max_longest,longest)
+    print(longest)
         
-for i in range(best_start,best_end + 1):
+    longest = 1
+        
+    i += 1
     
-    ans.append(nums[i])
+print(max_longest)
     
-print(ans)
+        
+    

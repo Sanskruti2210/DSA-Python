@@ -18,6 +18,11 @@ if breakpoint == -1:
     nums.reverse()
 else:
     
-    nums = nums[0:i]
+    for j in range(len(nums) - 1,breakpoint,-1):
+        
+        if nums[j] > breakpoint:
+            nums[j],nums[breakpoint] = nums[breakpoint],nums[j]
+            
+    nums[breakpoint + 1 : ] = reversed(nums[breakpoint + 1:])
     
 print(nums)

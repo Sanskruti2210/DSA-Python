@@ -1,33 +1,19 @@
-'''Given a string containing:
-( ) [ ] { }
+'''Given an m x n matrix, if an element is 0, set its entire row and column to 0.'''
 
-determine whether the brackets are properly matched and nested.'''
+matrix = [
+ [1, 1, 1],
+ [1, 0, 1],
+ [1, 1, 1]
+]
 
-def isValidParthesis(s):
+m = len(matrix)
+n = len(matrix[0])
+
+temp = [[0 for _ in range(n)] for _ in range(m)]
+
+for row in range(m):
     
-    stack = []
-    
-    for p in s:
+    for col in range(n):
         
-        if p == '(' or p == '{' or p=='[':
-            stack.append(p)
-        elif p == ')':
-            if stack[-1] != '(':
-                return False
-            else:
-                stack.pop()
-        elif p == ']':
-            if stack[-1] != '[':
-                return False
-            else:
-                stack.pop()
-        elif p == '}':
-            if stack[-1] != '{':
-                return False
-            else:
-                stack.pop()
-
-    return True
-
-s = "([)]"
-print(isValidParthesis(s))
+        if matrix[row][col] == 0:
+            
