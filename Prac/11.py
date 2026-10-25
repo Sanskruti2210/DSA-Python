@@ -1,18 +1,18 @@
-'''Given N, print the first N Fibonacci numbers.'''
+'''Given an integer array, find the contiguous subarray having the maximum product.'''
 
-def fibonacci(n):
-    
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fibonacci(n -1) + fibonacci(n - 2)
+nums = [2, 3, -2, 4]
 
-n = 7
+prefix = 1
+suffix = 1
+max_prod = 0
+
+n = len(nums)
+
 for i in range(n):
-    print(fibonacci(i),end=",")
-
     
+    prefix *= nums[i]
+    suffix *= nums[n - i - 1]
     
+    max_prod = max(max_prod,prefix,suffix)
     
+print(max_prod)

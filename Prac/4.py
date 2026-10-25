@@ -1,17 +1,34 @@
-'''Given an array containing positive and negative integers, rearrange the elements so that positive and negative numbers appear alternately.'''
+'''Given two strings s and t, determine whether they are isomorphic.
 
-nums = [3, 1, -2, -5, 2, -4]
-ans = [0]*len(nums)
-pos_index = 0
-neg_index = 1
+Two strings are isomorphic if characters in s can be mapped to characters in t such that the mapping is one-to-one and preserves the character pattern.'''
 
-for i in range(len(nums)):
+def isomorphic(s,t):
     
-    if nums[i] > 0:
-        ans[pos_index] = nums[i]
-        pos_index += 2
-    else:
-        ans[neg_index] = nums[i]
-        neg_index += 2
+    if len(s) != len(t):
+        return False
+    
+    map1 = {}
+    map2 = {}
+    
+    for i in range(len(s)):
         
-print(ans)
+        if s[i] in map1:
+            
+            if map1[s[i]] != t[i]:
+                return False
+            
+        if t[i] in map2:
+            
+            if map2[t[i]] != s[i]:
+                return False
+            
+        map1[s[i]] = t[i]
+        map2[t[i]] = s[i]
+            
+    return True
+        
+s = "egg"
+t = "add"
+
+res = isomorphic(s,t)
+print(res)

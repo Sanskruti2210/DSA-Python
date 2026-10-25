@@ -1,30 +1,33 @@
-'''Given an N × N matrix, rotate it 90 degrees clockwise.'''
+'''Implement conversion of a string into a 32-bit signed integer.
 
-matrix = [
-[1,2,3],
-[4,5,6],
-[7,8,9]
-]
+The string may contain:
+- leading spaces
+- an optional + or -
+- digits
+- characters after the number'''
 
-m = len(matrix)
-n = len(matrix[0])
+s = "1728abc"
+ans = 0
+sign = 1
 
-for i in range(m):
+i = 0
+
+while i < len(s):
     
-    for j in range(i + 1,n):
+    while i < len(s) and s[i] == " ":
+        i += 1
         
-        matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
+    if s[i] == "-":
+        sign = -1
+        i += 1
+    elif s[i] == "+":
+        i += 1
         
-for row in matrix:
-    
-    row.reverse()
-    
-for i in range(m):
-    
-    for j in range(n):
+    while i < len(s) and s[i] >= "0" and s[i] <= "9":
+        ans = ans*10 + int(s[i])
+        i += 1
         
-        print(matrix[i][j],end = " ")
+    i += 1
     
-    print()
-    
-    
+ans = ans*sign
+print(ans)

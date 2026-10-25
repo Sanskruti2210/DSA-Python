@@ -20,7 +20,7 @@ else:
     
     for j in range(len(nums) - 1,breakpoint,-1):
         
-        if nums[j] > breakpoint:
+        if nums[j] > nums[breakpoint]:
             nums[j],nums[breakpoint] = nums[breakpoint],nums[j]
             
     nums[breakpoint + 1 : ] = reversed(nums[breakpoint + 1:])

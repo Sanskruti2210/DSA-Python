@@ -1,22 +1,20 @@
-'''Given an integer N, determine whether it is a Perfect Number.
+'''Given an array of strings, find the longest common prefix shared by all strings.'''
 
-A number is perfect if the sum of its proper divisors equals the number itself.'''
+s = ["flower", "flow", "flight"]
 
-import math
-n = 28
-divisor = []
+s.sort()
 
-for i in range(1,math.isqrt(n) + 1):
+first = s[0]
+last = s[-1]
+
+ans = ""
+
+for i in range(min(len(first),len(last))):
     
-    if n % i == 0:
-        divisor.append(i)
-        
-        if i != (n // i) and (n//i) != n:
-            divisor.append(n//i)
-      
-divisor.sort()  
-print(divisor)
-if sum(divisor) == n:
-    print(True)
-else:
-    print(False)
+    if first[i] != last[i]:
+        break
+    
+    ans += first[i]
+    
+print(ans)
+    

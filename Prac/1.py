@@ -1,16 +1,12 @@
-'''Given two integers N1 and N2, find their Greatest Common Divisor (GCD).'''
+'''Given an array of integers, find the element that occurs the maximum number of times.'''
 
-n1 = 20
-n2 = 28
+nums = [1, 2, 2, 3, 3, 3, 4]
 
-while n1 > 0 and n2 > 0:
+freq = {}
+
+for num in nums:
     
-    if n1 > n2:
-        n1 = n1%n2
-    else:
-        n2 = n2%n1
-        
-if n1 == 0:
-    print(n2)
-else:
-    print(n1)
+    freq[num] = freq.get(num,0) + 1
+    
+max_freq = max(freq ,key = lambda x : freq[x])
+print(max_freq)

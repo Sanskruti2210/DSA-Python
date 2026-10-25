@@ -1,41 +1,15 @@
-'''Given a matrix, return its elements in spiral order.'''
+'''Given a string representing a positive integer, find the largest-valued odd-number substring that can be obtained by removing digits from the end.'''
 
-matrix = [
-[1,2,3],
-[4,5,6],
-[7,8,9]
-]
+s = '11251'
 
-m = len(matrix)
-n = len(matrix[0])
+num = 0
+max_odd = 0
 
-left = 0
-top = 0
-right = n - 1
-bottom = m - 1
-
-ans = []
-
-while top <= bottom and left <= right:
+for i in range(len(s)):
     
-    for i in range(left,right + 1):
-        ans.append(matrix[top][i])
-    top += 1
-        
-    for j in range(top,bottom + 1):
-        ans.append(matrix[j][right])
-    right -= 1
-        
-    if top <= bottom:
-        for k in range(right,left - 1,-1):
-            ans.append(matrix[bottom][k])
-            
-    bottom -= 1
+    num = num*10 + int(s[i])
     
-    if right <= left:
-        for l in range(bottom,top - 1,-1):
-            ans.append(matrix[l][left])
-            
-    left += 1
-    
-print(ans)
+    if num % 2 != 0:
+        max_odd = max(max_odd,num)
+
+print(max_odd)

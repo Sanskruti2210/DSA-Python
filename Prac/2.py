@@ -1,16 +1,15 @@
-'''Given an integer N, print all of its divisors.'''
+'''Given an array, find the element having the second-highest frequency.'''
 
-import math
-n = 36
-divisor = []
+nums = [1, 1, 2, 2, 2, 3, 3, 4]
 
-for i in range(1,math.isqrt(n) + 1):
+freq = {}
+
+for num in nums:
     
-    if n % i == 0:
-        divisor.append(i)
-        
-        if i != (n // i):
-            divisor.append(n//i)
-      
-divisor.sort()  
-print(divisor)
+    freq[num] = freq.get(num,0) + 1
+    
+
+max_freq = max(freq,key = lambda x : freq[x])
+max_key = [val for key,val in freq.items() if val == max_freq]
+
+print(max_freq,max_key)

@@ -1,23 +1,17 @@
-'''Given an integer array nums and an integer K, count the number of subarrays whose sum is exactly K.'''
+'''Given an array, count the number of inversions.
 
-nums = [1, 2, 3]
-k = 3
+An inversion is a pair (i, j) such that:
+i < j
+nums[i] > nums[j]'''
 
-prefix = {0 : 1}
-current_sum = 0
+nums = [5, 3, 2, 4, 1]
 count = 0
 
 for i in range(len(nums)):
     
-    current_sum += nums[i]
-    
-    if current_sum == k:
-        count += 1
+    for j in range(i,len(nums)):
         
-    pre = k - current_sum
-    if pre in prefix:
-        count += 1
-        
-    prefix[current_sum] = i
-        
+        if i < j  and nums[i] > nums[j]:
+            count += 1
+            
 print(count)
