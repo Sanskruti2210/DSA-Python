@@ -1,6 +1,7 @@
-'''Given an array of integers, find the element that occurs the maximum number of times.'''
+'''Given an integer array, find all elements that appear more than ⌊n/3⌋ times.'''
 
-nums = [1, 2, 2, 3, 3, 3, 4]
+nums = [3, 2, 3]
+n = len(nums)
 
 freq = {}
 
@@ -8,5 +9,5 @@ for num in nums:
     
     freq[num] = freq.get(num,0) + 1
     
-max_freq = max(freq ,key = lambda x : freq[x])
-print(max_freq)
+ans = [key for key,val in freq.items() if val > (n//3)]
+print(ans[0])
